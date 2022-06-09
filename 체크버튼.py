@@ -11,7 +11,7 @@ chkbox.select() #자동 선택처리
 chkbox.pack()
 
 chkvar2 = IntVar()
-chkbox2 = Checkbutton(root, text="걍 안보기", variable=chkvar2)
+chkbox2 = Checkbutton(root, text="그냥 안보기", variable=chkvar2)
 chkbox2.pack()
 
 def btncmd():
