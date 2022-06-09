@@ -1,3 +1,4 @@
+import tkinter.messagebox as msgbox #메세지 박스용도
 import tkinter.messagebox as msgbox
 from tkinter import * #tkinter 활용
 
@@ -9,7 +10,8 @@ root.geometry("640x480+400+100") # 크기
 menu = Menu(root)
 
 def warn():
-    msgbox.showwarning("경고", "저장하시겠습니까?")
+    msgbox.showwarning("경고", "저장하시겠습니까?") # 저장 경고 함수 생성
+
 
 #File 메뉴
 menu_file = Menu(menu, tearoff=0)
@@ -22,6 +24,7 @@ menu_file.add_separator() # 칸 나누기
 menu_file.add_command(label="페이지 설정(U)")
 menu_file.add_command(label="인쇄(P)...")
 menu_file.add_separator()
+menu_file.add_command(label="끝기(X)", command=warn) #메시지 박스 함수 불러오기
 menu_file.add_command(label="끝내기(X)", command=warn)
 menu.add_cascade(label="파일(F)", menu=menu_file)
 
@@ -72,6 +75,7 @@ menu.add_cascade(label="도움말(H)", menu=menu_help)
 root.config(menu=menu)
 
 txt = Text(root)
+txt.pack(side="left", fill="both", expand=True) # 화면에 꽉 차게
 txt.pack(side="left", fill="both", expand=True)
 
 root.mainloop()
