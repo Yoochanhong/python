@@ -1,31 +1,53 @@
+<<<<<<< HEAD
+import os
+=======
 import tkinter.messagebox as msgbox #메세지 박스용도
 import tkinter.messagebox as msgbox
+>>>>>>> master
 from tkinter import * #tkinter 활용
 
 root = Tk()
 root.title("제목 없음 - Windows 메모장") # 제목
 root.geometry("640x480+400+100") # 크기
 
+filename = "mynote.txt"
+
+def open_file():
+    if os.path.isfile(filename): #파일 있으면 true 없으면 false
+        with open(filename, "r", encoding="utf8") as file:
+            txt.delete("1.0", END) #텍스트 삭제
+            txt.insert(END, file.read()) # 불러오기
+
+def save_file():
+    with open(filename, "w", encoding="utf8") as file:
+        file.write(txt.get("1.0", END))
+
+<<<<<<< HEAD
 
 menu = Menu(root)
-
+=======
 def warn():
     msgbox.showwarning("경고", "저장하시겠습니까?") # 저장 경고 함수 생성
 
+>>>>>>> master
 
 #File 메뉴
 menu_file = Menu(menu, tearoff=0)
 menu_file.add_command(label="새로 만들기(N)")
 menu_file.add_command(label="새 창(W)")
-menu_file.add_command(label="열기(O)")
-menu_file.add_command(label="저장(S)")
+menu_file.add_command(label="열기(O)", command=open_file) # 열기 함수 불러오기
+menu_file.add_command(label="저장(S)", command=save_file) # 저장 함수 불러오기
 menu_file.add_command(label="다른 이름으로 저장(A)...")
 menu_file.add_separator() # 칸 나누기
 menu_file.add_command(label="페이지 설정(U)")
 menu_file.add_command(label="인쇄(P)...")
 menu_file.add_separator()
+<<<<<<< HEAD
+menu_file.add_command(label="끝내기(X)", command=root.quit)
+=======
 menu_file.add_command(label="끝기(X)", command=warn) #메시지 박스 함수 불러오기
 menu_file.add_command(label="끝내기(X)", command=warn)
+>>>>>>> master
 menu.add_cascade(label="파일(F)", menu=menu_file)
 
 
@@ -70,12 +92,24 @@ menu_help.add_command(label="피드백 보내기(F)")
 menu_help.add_separator()
 menu_help.add_command(label="메모장 정보(A)")
 menu.add_cascade(label="도움말(H)", menu=menu_help)
-
-
 root.config(menu=menu)
 
+
+
+<<<<<<< HEAD
+# 스크롤 바
+scrollbar = Scrollbar(root)
+scrollbar.pack(side="right", fill="y")
+
+
+# 본문 영역
+txt = Text(root, yscrollcommand=scrollbar.set)
+txt.pack(side="left", fill="both", expand=True) # 화면에 꽉 차게
+scrollbar.config(command=txt.yview) 
+=======
 txt = Text(root)
 txt.pack(side="left", fill="both", expand=True) # 화면에 꽉 차게
 txt.pack(side="left", fill="both", expand=True)
+>>>>>>> master
 
 root.mainloop()
