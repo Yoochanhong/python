@@ -1,6 +1,5 @@
 import os
 import tkinter.messagebox as msgbox #메세지 박스용도
-import tkinter.messagebox as msgbox
 from tkinter import * #tkinter 활용
 
 root = Tk()
@@ -37,8 +36,6 @@ menu_file.add_command(label="페이지 설정(U)")
 menu_file.add_command(label="인쇄(P)...")
 menu_file.add_separator()
 menu_file.add_command(label="끝내기(X)", command=root.quit)
-menu_file.add_command(label="끝기(X)", command=warn) #메시지 박스 함수 불러오기
-menu_file.add_command(label="끝내기(X)", command=warn)
 menu.add_cascade(label="파일(F)", menu=menu_file)
 
 
