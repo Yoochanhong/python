@@ -90,10 +90,8 @@ scrollbar.pack(side="right", fill="y")
 
 # 본문 영역
 txt = Text(root, yscrollcommand=scrollbar.set)
-txt.pack(side="left", fill="both", expand=True) # 화면에 꽉 차게
 scrollbar.config(command=txt.yview) 
 txt = Text(root)
 txt.pack(side="left", fill="both", expand=True) # 화면에 꽉 차게
-txt.pack(side="left", fill="both", expand=True)
 
 root.mainloop()
